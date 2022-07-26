@@ -1,0 +1,18 @@
+function addTogether() {
+  const [arg1,arg2] = arguments
+  const result = arg1+arg2
+  if(typeof arg1 !== "number"){
+    return 
+  }
+  if (arg2 === undefined)
+    return (arg2) => addTogether(arg1, arg2)
+
+  if(typeof result === "number"){
+    return result
+  }
+  
+   
+  return;
+}
+
+console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));

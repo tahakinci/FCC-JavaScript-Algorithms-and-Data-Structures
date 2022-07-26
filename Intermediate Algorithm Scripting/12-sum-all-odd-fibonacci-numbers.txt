@@ -1,0 +1,12 @@
+function sumFibs(num) {
+  let newArr = [0,1]
+  for(let i=1;i<num;i++){
+    newArr.push(newArr[i-1]+newArr[i])
+  }
+ 
+  let odd = newArr.filter(item => item % 2 ==1)
+  let result =odd.filter(item => item <=num).reduce((a,b) => a+b)
+  return result;
+}
+
+console.log(sumFibs(1000));

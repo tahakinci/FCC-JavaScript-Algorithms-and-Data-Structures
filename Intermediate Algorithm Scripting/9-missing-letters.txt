@@ -1,0 +1,18 @@
+function fearNotLetter(str) {
+  let newStr =""
+  for(let i=str[0].charCodeAt(); i<=str[str.length-1].charCodeAt(); i++){
+    
+    newStr += String.fromCharCode(i)
+   
+  }
+  if(newStr.length === 26){
+    return undefined
+  }
+  
+  str = str.split("")
+  str =(newStr.split("").filter(item => str.indexOf(item) == -1).join())
+  
+  return str;
+}
+
+console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"))

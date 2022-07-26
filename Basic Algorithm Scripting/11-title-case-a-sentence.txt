@@ -1,0 +1,17 @@
+function titleCase(str) {
+  const result = []
+  const arr =str.split(" ")
+  for(let i=0;i<arr.length;i++ ){
+   const newString =  arr[i][0].toString().toUpperCase() + arr[i].substring(1).toLowerCase()
+   result.push(newString)
+  } 
+  return result.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+
+
+
+(Char nedir ona bak)
+const [asd] 

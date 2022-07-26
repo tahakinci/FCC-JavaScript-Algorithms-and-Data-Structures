@@ -1,0 +1,152 @@
+const unit ={
+  "PENNY": 0.01,
+  "NICKEL": 0.05,
+  "DIME": 0.1,
+  "QUARTER": 0.25,
+  "ONE": 1,
+  "FIVE": 5,
+  "TEN": 10,
+  "TWENTY": 20,
+  "ONE HUNDRED": 100}
+  
+
+function checkCashRegister(price, cash, cid) {
+  let change = []
+  let subtraction = (cash-price).toFixed(2)
+
+  if(subtraction > 100 && cid.map(item =>item.includes("ONE HUNDRED")).some(i => i === true)){
+    if(cid.filter(item => item.includes("ONE HUNDRED"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["ONE HUNDRED"]))*unit["ONE HUNDRED"]][1] > cid.filter(item => item.includes("ONE HUNDRED"))[0][1])){
+      change.push(...(cid.filter(item => item.includes("ONE HUNDRED"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("ONE HUNDRED"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["ONE HUNDRED"]))*unit["ONE HUNDRED"]]))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+  if(subtraction > 20 && cid.map(item =>item.includes("TWENTY")).some(i => i === true)){
+     if(cid.filter(item => item.includes("TWENTY"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["TWENTY"]))*unit["TWENTY"]][1]) > cid.filter(item => item.includes("TWENTY"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("TWENTY"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+      
+    }
+    else{
+   change.push(cid.filter(item => item.includes("TWENTY"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["TWENTY"]))*unit["TWENTY"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   
+   }
+  }
+
+  if(subtraction > 10 && cid.map(item =>item.includes("TEN")).some(i => i === true)){
+    if(cid.filter(item => item.includes("TEN"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["TEN"]))*unit["TEN"]][1]) > cid.filter(item => item.includes("TEN"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("TEN"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("TEN"))[0].reduce((i,b)=>[i,Math.floor((subtraction/unit["TEN"]))*unit["TEN"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+   if(subtraction > 5 && cid.map(item =>item.includes("FIVE")).some(i => i === true)){
+   if(cid.filter(item => item.includes("FIVE"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["FIVE"]))*unit["FIVE"]][1]) > cid.filter(item => item.includes("FIVE"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("FIVE"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("FIVE"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["FIVE"]))*unit["FIVE"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+   if(subtraction > 1 && cid.map(item =>item.includes("ONE")).some(i => i === true)){
+   if(cid.filter(item => item.includes("ONE"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["ONE"]))*unit["ONE"]][1]) > cid.filter(item => item.includes("ONE"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("ONE"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("ONE"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["ONE"]))*unit["ONE"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+   if(subtraction > 0.25 && cid.map(item =>item.includes("QUARTER")).some(i => i === true)){
+   if(cid.filter(item => item.includes("QUARTER"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["QUARTER"]))*unit["QUARTER"]][1]) > cid.filter(item => item.includes("QUARTER"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("QUARTER"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("QUARTER"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["QUARTER"]))*unit["QUARTER"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+   if(subtraction > 0.1 && cid.map(item =>item.includes("DIME")).some(i => i === true)){
+   if(cid.filter(item => item.includes("DIME"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["DIME"]))*unit["DIME"]][1]) > cid.filter(item => item.includes("DIME"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("DIME"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("DIME"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["DIME"]))*unit["DIME"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+   if(subtraction > 0.05 && cid.map(item =>item.includes("NICKEL")).some(i => i === true)){
+   if(cid.filter(item => item.includes("NICKEL"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["NICKEL"]))*unit["NICKEL"]][1]) > cid.filter(item => item.includes("NICKEL"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("NICKEL"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("NICKEL"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["NICKEL"]))*unit["NICKEL"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   }
+  }
+
+   if(subtraction > 0.01 && cid.map(item =>item.includes("PENNY")).some(i => i === true)){
+   if(cid.filter(item => item.includes("PENNY"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["PENNY"]))*unit["PENNY"]][1]) > cid.filter(item => item.includes("PENNY"))[0][1]){
+      change.push(...(cid.filter(item => item.includes("PENNY"))))[0]
+      subtraction -= change[change.length-1][1]
+      subtraction = subtraction.toFixed(2)
+    }
+    else{
+   change.push(cid.filter(item => item.includes("PENNY"))[0].reduce((i,j)=>[i,Math.floor((subtraction/unit["PENNY"]))*unit["PENNY"]] ))
+   subtraction -= change[change.length-1][1]
+   subtraction = subtraction.toFixed(2)
+   
+   }
+  }
+ 
+ 
+  const cashInDrawer =cid.map(item=>item[1]).reduce((a,b)=> a+b)
+  console.log(cashInDrawer,(cash-price))
+  if(change.map(item=>item[1]).reduce((a,b)=> a+b) < (cash-price)){
+    return {status: "INSUFFICIENT_FUNDS", change: []}
+  }  
+  else if(+cashInDrawer <= change.map(item => item[1]).reduce((a,b)=> a+b)){
+    return {status: "CLOSED", change: cid}
+  } 
+  else if (+cashInDrawer > change.map(item => item[1]).reduce((a,b)=> a+b)){
+    return {status : "OPEN", change: change}
+  } 
+ 
+}
+
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));

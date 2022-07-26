@@ -1,0 +1,9 @@
+function confirmEnding(str, target) {
+if((str.substring(str.lastIndexOf(target),str.length)) == target){
+  return true
+}
+return false
+
+}
+
+confirmEnding("Connor", "n");

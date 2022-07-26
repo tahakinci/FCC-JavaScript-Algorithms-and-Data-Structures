@@ -1,0 +1,20 @@
+function rot13(str) {
+  let cipher = ""
+  str = str.split("")
+  console.log(str)
+  for(let i=0;i<str.length;i++){
+    if(str[i].charCodeAt(0) >= 78 && str[i].charCodeAt(0) <= 90 ){
+      cipher +=String.fromCharCode(str[i].charCodeAt(0)-13)
+    }
+    else if(str[i].charCodeAt(0) < 78 && str[i].charCodeAt(0) >= 65){
+      cipher +=String.fromCharCode(str[i].charCodeAt(0)+13)
+    }
+    else{
+      cipher += str[i]
+    }
+    console.log(cipher)
+  }  
+  return cipher;
+}
+
+rot13("SERR PBQR PNZC");

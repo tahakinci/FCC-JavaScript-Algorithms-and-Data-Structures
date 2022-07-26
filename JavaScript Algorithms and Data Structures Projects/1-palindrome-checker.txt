@@ -1,0 +1,14 @@
+function palindrome(str) {
+  let plndrm =""
+  const regex = /[^\W_]/ig
+  let newStr =str.match(regex).join("")
+  for(let i=newStr.length-1;i>=0;i--){
+    plndrm += newStr[i]
+  }
+  if(plndrm.toLowerCase() !== newStr.toLowerCase()){
+    return false
+  }
+  return true;
+}
+
+palindrome("_eye");

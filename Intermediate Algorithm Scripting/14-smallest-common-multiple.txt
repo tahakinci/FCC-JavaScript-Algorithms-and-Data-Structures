@@ -1,0 +1,25 @@
+function smallestCommons(arr) {
+let [min,max] = arr.sort((a,b) => a-b)
+let numberDivisor = max-min+1
+let maxMulti = []
+for(let i= arr[0];i<=arr[1];i++){
+  maxMulti.push(i)
+}
+maxMulti=maxMulti.reduce((a,b)=>a*b)
+
+
+for(let i=max;i<=maxMulti;i+=max){
+  let divisorCount = 1
+  for(let j=min; j<max; j++){
+    if(i % j ===0){
+      divisorCount ++ 
+    }
+  }
+  if(divisorCount === numberDivisor ){
+    return i
+  }
+}
+
+}
+
+console.log(smallestCommons([1,5]));
